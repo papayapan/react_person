@@ -1,9 +1,10 @@
 import React from 'react';
 
 export const Person = ({ person }) => {
+  const { name, age, partnerName, isMarried, sex } = person;
   const getPartner = () => {
-    if (person.isMarried) {
-      if (person.sex === 'm') {
+    if (isMarried) {
+      if (sex === 'm') {
         return 'wife';
       }
 
@@ -15,12 +16,12 @@ export const Person = ({ person }) => {
 
   return (
     <section className="Person">
-      <h2 className="Person__name">My name is {person.name}</h2>
+      <h2 className="Person__name">My name is {name}</h2>
 
-      {person.age && <p className="Person__age">I am {person.age}</p>}
+      {person.age && <p className="Person__age">I am {age}</p>}
 
       <p className="Person__partner">
-        {person.partnerName} is my {getPartner()}
+        {partnerName} is my {getPartner()}
       </p>
     </section>
   );
